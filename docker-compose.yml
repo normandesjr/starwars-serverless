@@ -1,0 +1,11 @@
+services:
+  stubby4j:
+    image: azagniotov/stubby4j:latest-jre11 
+    volumes:
+      - "./stubby4j:/home/stubby4j/data"
+    container_name: stubby4j
+    environment: 
+      YAML_CONFIG: stubby4j.yml
+    ports:
+      - "8882:8882"
+    

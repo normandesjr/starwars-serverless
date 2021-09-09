@@ -1,0 +1,8 @@
+- request:
+    url: ^/api/people/1$
+    method: GET
+  response:
+    headers:
+      Content-Type: application/json
+    status: 200
+    file: response/people_luke.json

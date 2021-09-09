@@ -6,22 +6,29 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:sam": "sam-beta-cdk build",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "swapi:create": "npm run build && npm run build:sam && sam-beta-cdk local invoke StarwarsServerlessStack/CreateCharacterFunction -e events/createCharacter.json"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.121.0",
+    "@aws-cdk/assert": "1.122.0",
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
+    "aws-cdk": "1.122.0",
     "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
-    "aws-cdk": "1.121.0",
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "@aws-cdk/core": "1.121.0",
+    "@aws-cdk/aws-apigateway": "^1.122.0",
+    "@aws-cdk/aws-dynamodb": "^1.122.0",
+    "@aws-cdk/aws-events": "^1.122.0",
+    "@aws-cdk/aws-lambda": "^1.122.0",
+    "@aws-cdk/aws-s3": "^1.122.0",
+    "@aws-cdk/core": "1.122.0",
     "source-map-support": "^0.5.16"
   }
 }

@@ -1,8 +1,16 @@
-# Welcome to your CDK TypeScript project!
+# Bem vindo ao StarWarks Serverless
 
-This is a blank project for TypeScript development with CDK.
+Este projeto demonstra a utilização do CDK para provisionar o Lambda em Node/TypeScript e OpenAPI.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Arquitetura
+
+![Arquitetura do projeto](doc/images/arquitecture.png)
+
+
+## Modelagem do DynamoDB
+
+![Modelagem do DynamoDB](doc/images/dynamodb-modeling.png)
+
 
 ## Useful commands
 
