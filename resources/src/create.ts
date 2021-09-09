@@ -26,8 +26,8 @@ export const main: APIGatewayProxyHandlerV2<APIGatewayProxyResultV2> = async(eve
   console.log('#########', event.body)
 
 
-  // const people: AxiosResponse<People> = await axios.get('http://host.docker.internal:8882/api/people/1')
-  const people: AxiosResponse<People> = await axios.get('https://swapi.dev/api/people/1')
+  const people: AxiosResponse<People> = await axios.get('http://host.docker.internal:8882/api/people/1')
+  // const people: AxiosResponse<People> = await axios.get('https://swapi.dev/api/people/1')
 
   const requestBody = JSON.parse(event.body ?? '{}')
   const newCharacter:Character = { user: requestBody.user, swapi_id: requestBody.swapi_id }

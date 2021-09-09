@@ -1,12 +1,9 @@
 {
-  "body": {
-    "user": "maria",
-    "swapi_id": 2
-  },
+  "body": "{ \"user\": \"maria\",\"swapi_id\": 2}",
   "resource": "/{proxy+}",
   "path": "/characters",
   "httpMethod": "POST",
-  "isBase64Encoded": true,
+  "isBase64Encoded": false,
   "queryStringParameters": {
   },
   "multiValueQueryStringParameters": {

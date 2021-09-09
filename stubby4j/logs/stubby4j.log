@@ -194,3 +194,9 @@
 2021-09-09T19:10:45,404+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 5 milliseconds URL [^/api/people/1$]
 2021-09-09T19:10:45,405+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
 2021-09-09T19:10:45,415+00:00 INFO i.g.a.s.u.ConsoleUtils [19:10:45] <- 200 [/api/people/1] OK
+2021-09-09T20:17:03,293+00:00 INFO i.g.a.s.u.ConsoleUtils [20:17:03] -> GET [/api/people/1]
+2021-09-09T20:17:03,294+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
+2021-09-09T20:17:03,296+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
+2021-09-09T20:17:03,298+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 4 milliseconds URL [^/api/people/1$]
+2021-09-09T20:17:03,299+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
+2021-09-09T20:17:03,308+00:00 INFO i.g.a.s.u.ConsoleUtils [20:17:03] <- 200 [/api/people/1] OK
