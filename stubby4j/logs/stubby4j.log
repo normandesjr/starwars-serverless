@@ -1,202 +1,53 @@
-2021-09-09T13:19:22,532+00:00 DEBUG i.g.a.s.Main stubby4j successfully started after 460 milliseconds.
-2021-09-09T13:19:22,541+00:00 DEBUG i.g.a.s.Main Admin portal configured at http://0.0.0.0:8889
-2021-09-09T13:19:22,542+00:00 DEBUG i.g.a.s.Main Admin portal status enabled at http://0.0.0.0:8889/status
-2021-09-09T13:19:22,543+00:00 DEBUG i.g.a.s.Main Stubs portal configured at http://0.0.0.0:8882
-2021-09-09T13:19:22,544+00:00 DEBUG i.g.a.s.Main Stubs portal configured with TLS at https://0.0.0.0:7443 using internal keystore
-2021-09-09T13:19:22,546+00:00 INFO i.g.a.s.Main Quit: ctrl-c
-2021-09-09T13:22:29,879+00:00 INFO i.g.a.s.u.ConsoleUtils Loaded stub metadata: [GET] ^/hello
-2021-09-09T13:22:30,177+00:00 DEBUG i.g.a.s.Main stubby4j successfully started after 590 milliseconds.
-2021-09-09T13:22:30,179+00:00 DEBUG i.g.a.s.Main Admin portal configured at http://0.0.0.0:8889
-2021-09-09T13:22:30,180+00:00 DEBUG i.g.a.s.Main Admin portal status enabled at http://0.0.0.0:8889/status
-2021-09-09T13:22:30,181+00:00 DEBUG i.g.a.s.Main Stubs portal configured at http://0.0.0.0:8882
-2021-09-09T13:22:30,182+00:00 DEBUG i.g.a.s.Main Stubs portal configured with TLS at https://0.0.0.0:7443 using internal keystore
-2021-09-09T13:22:30,183+00:00 INFO i.g.a.s.Main Quit: ctrl-c
-2021-09-09T13:22:52,074+00:00 INFO i.g.a.s.u.ConsoleUtils [13:22:52] -> GET [/hello]
-2021-09-09T13:22:52,086+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/hello] WITH [/hello].
-2021-09-09T13:22:52,088+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T13:22:52,090+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 13 milliseconds URL [^/hello]
-2021-09-09T13:22:52,091+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [-1232302947].
-2021-09-09T13:22:52,106+00:00 INFO i.g.a.s.u.ConsoleUtils [13:22:52] <- 200 [/hello] OK
-2021-09-09T13:22:52,176+00:00 INFO i.g.a.s.u.ConsoleUtils [13:22:52] -> GET [/favicon.ico]
-2021-09-09T13:26:29,595+00:00 INFO i.g.a.s.u.ConsoleUtils Loaded stub metadata: [GET] ^/api/people/1$
-2021-09-09T13:26:29,857+00:00 DEBUG i.g.a.s.Main stubby4j successfully started after 478 milliseconds.
-2021-09-09T13:26:29,860+00:00 DEBUG i.g.a.s.Main Admin portal configured at http://0.0.0.0:8889
-2021-09-09T13:26:29,861+00:00 DEBUG i.g.a.s.Main Admin portal status enabled at http://0.0.0.0:8889/status
-2021-09-09T13:26:29,861+00:00 DEBUG i.g.a.s.Main Stubs portal configured at http://0.0.0.0:8882
-2021-09-09T13:26:29,863+00:00 DEBUG i.g.a.s.Main Stubs portal configured with TLS at https://0.0.0.0:7443 using internal keystore
-2021-09-09T13:26:29,864+00:00 INFO i.g.a.s.Main Quit: ctrl-c
-2021-09-09T13:26:38,791+00:00 INFO i.g.a.s.u.ConsoleUtils [13:26:38] -> GET [/people/1]
-2021-09-09T13:26:38,800+00:00 ERROR i.g.a.s.s.StubMatcher Failed to match on URL [^/api/people/1$] WITH [/people/1].
-2021-09-09T13:26:38,806+00:00 ERROR i.g.a.s.u.HandlerUtils {"reason":"(404) Nothing found for GET request at URI \/people\/1","headers":{"sec-fetch-mode":"navigate","sec-fetch-site":"none","accept-language":"en-US,en;q=0.9,pt;q=0.8","sec-fetch-user":"?1","accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","sec-ch-ua":"\"Google Chrome\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","sec-ch-ua-mobile":"?0","sec-ch-ua-platform":"\"macOS\"","host":"localhost:8882","upgrade-insecure-requests":"1","connection":"keep-alive","accept-encoding":"gzip, deflate, br","user-agent":"Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36","sec-fetch-dest":"document"},"method":"GET","url":"\/people\/1"}
-2021-09-09T13:26:38,808+00:00 ERROR i.g.a.s.u.ConsoleUtils [13:26:38] <- 404 [/people/1] Not Found
-2021-09-09T13:26:52,329+00:00 INFO i.g.a.s.u.ConsoleUtils [13:26:52] -> GET [/api/people/1]
-2021-09-09T13:26:52,332+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T13:26:52,334+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T13:26:52,337+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 6 milliseconds URL [^/api/people/1$]
-2021-09-09T13:26:52,340+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [-802594005].
-2021-09-09T13:26:52,349+00:00 INFO i.g.a.s.u.ConsoleUtils [13:26:52] <- 200 [/api/people/1] OK
-2021-09-09T13:28:29,164+00:00 INFO i.g.a.s.u.ConsoleUtils [13:28:29] -> GET [/api/people/1]
-2021-09-09T13:28:29,166+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T13:28:29,168+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T13:28:29,169+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T13:28:29,171+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [192866962].
-2021-09-09T13:28:29,180+00:00 INFO i.g.a.s.u.ConsoleUtils [13:28:29] <- 200 [/api/people/1] OK
-2021-09-09T13:29:27,317+00:00 INFO i.g.a.s.u.ConsoleUtils Loaded stub metadata: [GET] ^/api/people/1$
-2021-09-09T13:29:27,542+00:00 DEBUG i.g.a.s.Main stubby4j successfully started after 441 milliseconds.
-2021-09-09T13:29:27,544+00:00 DEBUG i.g.a.s.Main Admin portal configured at http://0.0.0.0:8889
-2021-09-09T13:29:27,545+00:00 DEBUG i.g.a.s.Main Admin portal status enabled at http://0.0.0.0:8889/status
-2021-09-09T13:29:27,546+00:00 DEBUG i.g.a.s.Main Stubs portal configured at http://0.0.0.0:8882
-2021-09-09T13:29:27,546+00:00 DEBUG i.g.a.s.Main Stubs portal configured with TLS at https://0.0.0.0:7443 using internal keystore
-2021-09-09T13:29:27,547+00:00 INFO i.g.a.s.Main Quit: ctrl-c
-2021-09-09T13:30:12,058+00:00 INFO i.g.a.s.u.ConsoleUtils [13:30:12] -> GET [/api/people/1]
-2021-09-09T13:30:12,076+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T13:30:12,078+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T13:30:12,079+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 10 milliseconds URL [^/api/people/1$]
-2021-09-09T13:30:12,081+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [-626774728].
-2021-09-09T13:30:12,098+00:00 INFO i.g.a.s.u.ConsoleUtils [13:30:12] <- 200 [/api/people/1] OK
-2021-09-09T13:30:34,480+00:00 INFO i.g.a.s.u.ConsoleUtils [13:30:34] -> GET [/api/people/1]
-2021-09-09T13:30:34,483+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T13:30:34,484+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T13:30:34,485+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 3 milliseconds URL [^/api/people/1$]
-2021-09-09T13:30:34,487+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [-877939996].
-2021-09-09T13:30:34,495+00:00 INFO i.g.a.s.u.ConsoleUtils [13:30:34] <- 200 [/api/people/1] OK
-2021-09-09T13:30:35,178+00:00 INFO i.g.a.s.u.ConsoleUtils [13:30:35] -> GET [/api/people/1]
-2021-09-09T13:30:35,180+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T13:30:35,180+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T13:30:35,181+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T13:30:35,183+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [-132486901].
-2021-09-09T13:30:35,190+00:00 INFO i.g.a.s.u.ConsoleUtils [13:30:35] <- 200 [/api/people/1] OK
-2021-09-09T13:45:39,980+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:39] -> GET [/api/people/1]
-2021-09-09T13:45:39,983+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T13:45:39,985+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T13:45:39,989+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 7 milliseconds URL [^/api/people/1$]
-2021-09-09T13:45:39,990+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1869544784].
-2021-09-09T13:45:39,996+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:39] <- 200 [/api/people/1] OK
-2021-09-09T13:45:40,022+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:40] -> GET [/favicon.ico]
-2021-09-09T13:45:40,990+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:40] -> GET [/api/people/1]
-2021-09-09T13:45:40,992+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1869544784].
-2021-09-09T13:45:40,992+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
-2021-09-09T13:45:40,997+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:40] <- 200 [/api/people/1] OK
-2021-09-09T13:45:41,017+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:41] -> GET [/favicon.ico]
-2021-09-09T13:45:41,431+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:41] -> GET [/api/people/1]
-2021-09-09T13:45:41,434+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1869544784].
-2021-09-09T13:45:41,435+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T13:45:41,444+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:41] <- 200 [/api/people/1] OK
-2021-09-09T13:45:41,463+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:41] -> GET [/favicon.ico]
-2021-09-09T13:45:41,769+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:41] -> GET [/api/people/1]
-2021-09-09T13:45:41,770+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1869544784].
-2021-09-09T13:45:41,772+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T13:45:41,776+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:41] <- 200 [/api/people/1] OK
-2021-09-09T13:45:41,796+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:41] -> GET [/favicon.ico]
-2021-09-09T13:45:42,125+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:42] -> GET [/api/people/1]
-2021-09-09T13:45:42,127+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1869544784].
-2021-09-09T13:45:42,128+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
-2021-09-09T13:45:42,133+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:42] <- 200 [/api/people/1] OK
-2021-09-09T13:45:42,151+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:42] -> GET [/favicon.ico]
-2021-09-09T13:45:42,418+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:42] -> GET [/api/people/1]
-2021-09-09T13:45:42,420+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1869544784].
-2021-09-09T13:45:42,422+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T13:45:42,429+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:42] <- 200 [/api/people/1] OK
-2021-09-09T13:45:42,447+00:00 INFO i.g.a.s.u.ConsoleUtils [13:45:42] -> GET [/favicon.ico]
-2021-09-09T13:46:19,001+00:00 INFO i.g.a.s.u.ConsoleUtils [13:46:19] -> GET [/api/people/1]
-2021-09-09T13:46:19,004+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T13:46:19,006+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T13:46:19,011+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 7 milliseconds URL [^/api/people/1$]
-2021-09-09T13:46:19,013+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [-802594005].
-2021-09-09T13:46:19,022+00:00 INFO i.g.a.s.u.ConsoleUtils [13:46:19] <- 200 [/api/people/1] OK
-2021-09-09T14:00:12,736+00:00 INFO i.g.a.s.u.ConsoleUtils [14:00:12] -> GET [/api/people/1]
-2021-09-09T14:00:12,738+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T14:00:12,742+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T14:00:12,746+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 9 milliseconds URL [^/api/people/1$]
-2021-09-09T14:00:12,747+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
-2021-09-09T14:00:12,754+00:00 INFO i.g.a.s.u.ConsoleUtils [14:00:12] <- 200 [/api/people/1] OK
-2021-09-09T16:27:41,695+00:00 INFO i.g.a.s.u.ConsoleUtils [16:27:41] -> GET [/api/people/1]
-2021-09-09T16:27:41,699+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T16:27:41,700+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T16:27:41,702+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 5 milliseconds URL [^/api/people/1$]
-2021-09-09T16:27:41,703+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
-2021-09-09T16:27:41,709+00:00 INFO i.g.a.s.u.ConsoleUtils [16:27:41] <- 200 [/api/people/1] OK
-2021-09-09T16:30:15,398+00:00 INFO i.g.a.s.u.ConsoleUtils [16:30:15] -> GET [/api/people/1]
-2021-09-09T16:30:15,400+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T16:30:15,401+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
-2021-09-09T16:30:15,405+00:00 INFO i.g.a.s.u.ConsoleUtils [16:30:15] <- 200 [/api/people/1] OK
-2021-09-09T16:30:25,140+00:00 INFO i.g.a.s.u.ConsoleUtils [16:30:25] -> GET [/api/people/1]
-2021-09-09T16:30:25,142+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T16:30:25,146+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T16:30:25,148+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 6 milliseconds URL [^/api/people/1$]
-2021-09-09T16:30:25,149+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [-1840736665].
-2021-09-09T16:30:25,153+00:00 INFO i.g.a.s.u.ConsoleUtils [16:30:25] <- 200 [/api/people/1] OK
-2021-09-09T16:30:55,834+00:00 INFO i.g.a.s.u.ConsoleUtils [16:30:55] -> GET [/api/people/1]
-2021-09-09T16:30:55,839+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T16:30:55,841+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 3 milliseconds URL [^/api/people/1$]
-2021-09-09T16:30:55,847+00:00 INFO i.g.a.s.u.ConsoleUtils [16:30:55] <- 200 [/api/people/1] OK
-2021-09-09T16:36:32,873+00:00 INFO i.g.a.s.u.ConsoleUtils [16:36:32] -> GET [/api/people/1]
-2021-09-09T16:36:32,874+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T16:36:32,886+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 11 milliseconds URL [^/api/people/1$]
-2021-09-09T16:36:32,895+00:00 INFO i.g.a.s.u.ConsoleUtils [16:36:32] <- 200 [/api/people/1] OK
-2021-09-09T16:36:51,809+00:00 INFO i.g.a.s.u.ConsoleUtils [16:36:51] -> GET [/api/people/1]
-2021-09-09T16:36:51,811+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T16:36:51,813+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T16:36:51,822+00:00 INFO i.g.a.s.u.ConsoleUtils [16:36:51] <- 200 [/api/people/1] OK
-2021-09-09T17:29:00,007+00:00 INFO i.g.a.s.u.ConsoleUtils [17:29:00] -> GET [/api/people/1]
-2021-09-09T17:29:00,008+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T17:29:00,010+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T17:29:00,011+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 3 milliseconds URL [^/api/people/1$]
-2021-09-09T17:29:00,013+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
-2021-09-09T17:29:00,022+00:00 INFO i.g.a.s.u.ConsoleUtils [17:29:00] <- 200 [/api/people/1] OK
-2021-09-09T17:29:33,662+00:00 INFO i.g.a.s.u.ConsoleUtils [17:29:33] -> GET [/api/people/1]
-2021-09-09T17:29:33,663+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T17:29:33,665+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T17:29:33,672+00:00 INFO i.g.a.s.u.ConsoleUtils [17:29:33] <- 200 [/api/people/1] OK
-2021-09-09T17:34:10,592+00:00 INFO i.g.a.s.u.ConsoleUtils [17:34:10] -> GET [/api/people/1]
-2021-09-09T17:34:10,593+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T17:34:10,596+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 3 milliseconds URL [^/api/people/1$]
-2021-09-09T17:34:10,601+00:00 INFO i.g.a.s.u.ConsoleUtils [17:34:10] <- 200 [/api/people/1] OK
-2021-09-09T17:47:32,901+00:00 INFO i.g.a.s.u.ConsoleUtils [17:47:32] -> GET [/api/people/1]
-2021-09-09T17:47:32,904+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T17:47:32,905+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
-2021-09-09T17:47:32,912+00:00 INFO i.g.a.s.u.ConsoleUtils [17:47:32] <- 200 [/api/people/1] OK
-2021-09-09T17:47:49,934+00:00 INFO i.g.a.s.u.ConsoleUtils [17:47:49] -> GET [/api/people/1]
-2021-09-09T17:47:49,937+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T17:47:49,939+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T17:47:49,946+00:00 INFO i.g.a.s.u.ConsoleUtils [17:47:49] <- 200 [/api/people/1] OK
-2021-09-09T17:50:47,174+00:00 INFO i.g.a.s.u.ConsoleUtils [17:50:47] -> GET [/api/people/1]
-2021-09-09T17:50:47,176+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T17:50:47,176+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 0 milliseconds URL [^/api/people/1$]
-2021-09-09T17:50:47,183+00:00 INFO i.g.a.s.u.ConsoleUtils [17:50:47] <- 200 [/api/people/1] OK
-2021-09-09T17:52:58,901+00:00 INFO i.g.a.s.u.ConsoleUtils [17:52:58] -> GET [/api/people/1]
-2021-09-09T17:52:58,903+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T17:52:58,904+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
-2021-09-09T17:52:58,909+00:00 INFO i.g.a.s.u.ConsoleUtils [17:52:58] <- 200 [/api/people/1] OK
-2021-09-09T17:54:41,688+00:00 INFO i.g.a.s.u.ConsoleUtils [17:54:41] -> GET [/api/people/1]
-2021-09-09T17:54:41,690+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T17:54:41,691+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
-2021-09-09T17:54:41,695+00:00 INFO i.g.a.s.u.ConsoleUtils [17:54:41] <- 200 [/api/people/1] OK
-2021-09-09T17:59:24,129+00:00 INFO i.g.a.s.u.ConsoleUtils [17:59:24] -> GET [/api/people/1]
-2021-09-09T17:59:24,130+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T17:59:24,131+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
-2021-09-09T17:59:24,142+00:00 INFO i.g.a.s.u.ConsoleUtils [17:59:24] <- 200 [/api/people/1] OK
-2021-09-09T18:00:15,806+00:00 INFO i.g.a.s.u.ConsoleUtils [18:00:15] -> GET [/api/people/1]
-2021-09-09T18:00:15,808+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T18:00:15,810+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T18:00:15,814+00:00 INFO i.g.a.s.u.ConsoleUtils [18:00:15] <- 200 [/api/people/1] OK
-2021-09-09T18:01:15,298+00:00 INFO i.g.a.s.u.ConsoleUtils [18:01:15] -> GET [/api/people/1]
-2021-09-09T18:01:15,302+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T18:01:15,303+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
-2021-09-09T18:01:15,307+00:00 INFO i.g.a.s.u.ConsoleUtils [18:01:15] <- 200 [/api/people/1] OK
-2021-09-09T18:01:58,179+00:00 INFO i.g.a.s.u.ConsoleUtils [18:01:58] -> GET [/api/people/1]
-2021-09-09T18:01:58,181+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
-2021-09-09T18:01:58,183+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
-2021-09-09T18:01:58,188+00:00 INFO i.g.a.s.u.ConsoleUtils [18:01:58] <- 200 [/api/people/1] OK
-2021-09-09T19:10:45,397+00:00 INFO i.g.a.s.u.ConsoleUtils [19:10:45] -> GET [/api/people/1]
-2021-09-09T19:10:45,401+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T19:10:45,403+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T19:10:45,404+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 5 milliseconds URL [^/api/people/1$]
-2021-09-09T19:10:45,405+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
-2021-09-09T19:10:45,415+00:00 INFO i.g.a.s.u.ConsoleUtils [19:10:45] <- 200 [/api/people/1] OK
-2021-09-09T20:17:03,293+00:00 INFO i.g.a.s.u.ConsoleUtils [20:17:03] -> GET [/api/people/1]
-2021-09-09T20:17:03,294+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
-2021-09-09T20:17:03,296+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
-2021-09-09T20:17:03,298+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 4 milliseconds URL [^/api/people/1$]
-2021-09-09T20:17:03,299+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
-2021-09-09T20:17:03,308+00:00 INFO i.g.a.s.u.ConsoleUtils [20:17:03] <- 200 [/api/people/1] OK
+2021-09-10T16:55:58,022+00:00 INFO i.g.a.s.u.ConsoleUtils Loaded stub metadata: [GET] ^/api/people/1$
+2021-09-10T16:55:58,728+00:00 DEBUG i.g.a.s.Main stubby4j successfully started after 1200 milliseconds.
+2021-09-10T16:55:58,734+00:00 DEBUG i.g.a.s.Main Admin portal configured at http://0.0.0.0:8889
+2021-09-10T16:55:58,735+00:00 DEBUG i.g.a.s.Main Admin portal status enabled at http://0.0.0.0:8889/status
+2021-09-10T16:55:58,736+00:00 DEBUG i.g.a.s.Main Stubs portal configured at http://0.0.0.0:8882
+2021-09-10T16:55:58,738+00:00 DEBUG i.g.a.s.Main Stubs portal configured with TLS at https://0.0.0.0:7443 using internal keystore
+2021-09-10T16:55:58,740+00:00 INFO i.g.a.s.Main Quit: ctrl-c
+2021-09-10T16:56:24,344+00:00 INFO i.g.a.s.u.ConsoleUtils [16:56:24] -> GET [/api/people/1]
+2021-09-10T16:56:24,360+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
+2021-09-10T16:56:24,361+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
+2021-09-10T16:56:24,363+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 15 milliseconds URL [^/api/people/1$]
+2021-09-10T16:56:24,364+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
+2021-09-10T16:56:24,388+00:00 INFO i.g.a.s.u.ConsoleUtils [16:56:24] <- 200 [/api/people/1] OK
+2021-09-10T16:57:11,324+00:00 INFO i.g.a.s.u.ConsoleUtils [16:57:11] -> GET [/api/people/1]
+2021-09-10T16:57:11,330+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
+2021-09-10T16:57:11,331+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
+2021-09-10T16:57:11,342+00:00 INFO i.g.a.s.u.ConsoleUtils [16:57:11] <- 200 [/api/people/1] OK
+2021-09-10T16:58:01,162+00:00 INFO i.g.a.s.u.ConsoleUtils [16:58:01] -> GET [/api/people/1]
+2021-09-10T16:58:01,164+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
+2021-09-10T16:58:01,165+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 1 milliseconds URL [^/api/people/1$]
+2021-09-10T16:58:01,170+00:00 INFO i.g.a.s.u.ConsoleUtils [16:58:01] <- 200 [/api/people/1] OK
+2021-09-10T17:04:48,514+00:00 INFO i.g.a.s.u.ConsoleUtils [17:04:48] -> GET [/api/people/1]
+2021-09-10T17:04:48,515+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
+2021-09-10T17:04:48,517+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
+2021-09-10T17:04:48,520+00:00 INFO i.g.a.s.u.ConsoleUtils [17:04:48] <- 200 [/api/people/1] OK
+2021-09-10T17:07:28,076+00:00 INFO i.g.a.s.u.ConsoleUtils [17:07:28] -> GET [/api/people/1]
+2021-09-10T17:07:28,080+00:00 DEBUG i.g.a.s.s.StubRepository Local cache contains a match for hashCode [1868183470].
+2021-09-10T17:07:28,082+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 2 milliseconds URL [^/api/people/1$]
+2021-09-10T17:07:28,091+00:00 INFO i.g.a.s.u.ConsoleUtils [17:07:28] <- 200 [/api/people/1] OK
+2021-09-10T17:18:48,480+00:00 INFO i.g.a.s.u.ConsoleUtils Loaded stub metadata: [GET] ^/api/people/1$
+2021-09-10T17:18:48,918+00:00 DEBUG i.g.a.s.Main stubby4j successfully started after 867 milliseconds.
+2021-09-10T17:18:48,921+00:00 DEBUG i.g.a.s.Main Admin portal configured at http://0.0.0.0:8889
+2021-09-10T17:18:48,923+00:00 DEBUG i.g.a.s.Main Admin portal status enabled at http://0.0.0.0:8889/status
+2021-09-10T17:18:48,925+00:00 DEBUG i.g.a.s.Main Stubs portal configured at http://0.0.0.0:8882
+2021-09-10T17:18:48,927+00:00 DEBUG i.g.a.s.Main Stubs portal configured with TLS at https://0.0.0.0:7443 using internal keystore
+2021-09-10T17:18:48,930+00:00 INFO i.g.a.s.Main Quit: ctrl-c
+2021-09-10T17:44:17,261+00:00 INFO i.g.a.s.u.ConsoleUtils Loaded stub metadata: [GET] ^/api/people/1$
+2021-09-10T17:44:17,714+00:00 DEBUG i.g.a.s.Main stubby4j successfully started after 938 milliseconds.
+2021-09-10T17:44:17,719+00:00 DEBUG i.g.a.s.Main Admin portal configured at http://0.0.0.0:8889
+2021-09-10T17:44:17,720+00:00 DEBUG i.g.a.s.Main Admin portal status enabled at http://0.0.0.0:8889/status
+2021-09-10T17:44:17,722+00:00 DEBUG i.g.a.s.Main Stubs portal configured at http://0.0.0.0:8882
+2021-09-10T17:44:17,724+00:00 DEBUG i.g.a.s.Main Stubs portal configured with TLS at https://0.0.0.0:7443 using internal keystore
+2021-09-10T17:44:17,725+00:00 INFO i.g.a.s.Main Quit: ctrl-c
+2021-09-10T17:50:29,209+00:00 INFO i.g.a.s.u.ConsoleUtils [17:50:29] -> GET [/api/people/2]
+2021-09-10T17:50:29,229+00:00 ERROR i.g.a.s.s.StubMatcher Failed to match on URL [^/api/people/1$] WITH [/api/people/2].
+2021-09-10T17:50:29,242+00:00 ERROR i.g.a.s.u.HandlerUtils {"reason":"(404) Nothing found for GET request at URI \/api\/people\/2","headers":{"host":"host.docker.internal:8882","connection":"close","accept":"application\/json, text\/plain, *\/*","user-agent":"axios\/0.21.4"},"method":"GET","url":"\/api\/people\/2"}
+2021-09-10T17:50:29,244+00:00 ERROR i.g.a.s.u.ConsoleUtils [17:50:29] <- 404 [/api/people/2] Not Found
+2021-09-10T17:53:23,477+00:00 INFO i.g.a.s.u.ConsoleUtils [17:53:23] -> GET [/api/people/1]
+2021-09-10T17:53:23,479+00:00 INFO i.g.a.s.s.StubMatcher Matched on URL [^/api/people/1$] WITH [/api/people/1].
+2021-09-10T17:53:23,481+00:00 INFO i.g.a.s.s.StubMatcher Matched on METHOD [[GET]] WITH [[GET]]
+2021-09-10T17:53:23,482+00:00 DEBUG i.g.a.s.s.StubRepository Found a match after 3 milliseconds URL [^/api/people/1$]
+2021-09-10T17:53:23,484+00:00 DEBUG i.g.a.s.s.StubRepository Caching the found match for hashCode [1868183470].
+2021-09-10T17:53:23,491+00:00 INFO i.g.a.s.u.ConsoleUtils [17:53:23] <- 200 [/api/people/1] OK

@@ -2,16 +2,16 @@ import { APIGatewayProxyEventV2, APIGatewayProxyHandlerV2, APIGatewayProxyResult
 import axios, { AxiosResponse } from 'axios'
 import { EventBridgeClient, PutEventsCommand } from '@aws-sdk/client-eventbridge'
 
-interface People {
-  name: string,
-  height: string,
-  gender: string
-}
-
 interface Character {
   user: string,
   swapi_id: number
 }
+
+interface People {
+  name: string,
+  height: string,
+  gender: string
+}  
 
 interface FullCharacter {
   user: string,
@@ -23,14 +23,17 @@ interface FullCharacter {
 
 export const main: APIGatewayProxyHandlerV2<APIGatewayProxyResultV2> = async(event: APIGatewayProxyEventV2) => {
 
-  // const people: AxiosResponse<People> = await axios.get('http://host.docker.internal:8882/api/people/1')
-  const people: AxiosResponse<People> = await axios.get('https://swapi.dev/api/people/1')
-
   const requestBody = JSON.parse(event.body ?? '{}')
   const newCharacter:Character = { user: requestBody.user, swapi_id: requestBody.swapi_id }
 
-  const fullCharacter:FullCharacter = { user: newCharacter.user, character: people.data.name, height: people.data.height, gender: people.data.gender, swapi_id: newCharacter.swapi_id }
-  console.log('FullCharacter', fullCharacter)
+  const people: AxiosResponse<People> = await axios.get(`${process.env.SWAPI_BASE_URL}/people/${newCharacter.swapi_id}`)
+
+  const fullCharacter:FullCharacter = { 
+    user: newCharacter.user, 
+    character: people.data.name, 
+    height: people.data.height, 
+    gender: people.data.gender, 
+    swapi_id: newCharacter.swapi_id }
 
   const eventBridgeClient = new EventBridgeClient({})
   const eventBridgeCommand = new PutEventsCommand({Entries: [{
@@ -40,11 +43,10 @@ export const main: APIGatewayProxyHandlerV2<APIGatewayProxyResultV2> = async(eve
     Source: 'game'
   }]})
 
-  const eventResult = await eventBridgeClient.send(eventBridgeCommand)
-  console.log('eventResult', eventResult)
+  await eventBridgeClient.send(eventBridgeCommand)
 
   return { 
-    body: `Sera3: ${ newCharacter.user }`,
+    body: newCharacter.user,
     statusCode: people.status
   }
 }

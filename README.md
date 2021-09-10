@@ -11,6 +11,17 @@ Este projeto demonstra a utilização do CDK para provisionar o Lambda em Node/T
 
 ![Modelagem do DynamoDB](doc/images/dynamodb-modeling.png)
 
+## Mock da SWAPI
+
+A SWAPI pode ser mockada com o stubby4j, basta iniciar o docker-compose.yml.
+
+````
+docker-compose up -d
+````
+
+O arquivo `locals.json` possui o endereço local do stubby4j no docker.
+
+No macOS no teste `invoke local` você deve usar o valor: http://host.docker.internal:8882, para que o container do SAM consiga chamar o host.
 
 ## Useful commands
 

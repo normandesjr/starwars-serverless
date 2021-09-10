@@ -22,7 +22,8 @@ export class StarwarsService extends core.Construct {
       handler: "src/create.main",
       timeout: core.Duration.seconds(30),
       environment: {
-        'NEW_CHARACTER_BUS': newCharacterBus.eventBusName
+        'NEW_CHARACTER_BUS': newCharacterBus.eventBusName,
+        'SWAPI_BASE_URL': 'https://swapi.dev/api'
       }
     })
     

@@ -8,4 +8,10 @@ services:
       YAML_CONFIG: stubby4j.yml
     ports:
       - "8882:8882"
+
+networks:
+  default:
+    external: true
+    name: starwars-serverless_default
+      
     

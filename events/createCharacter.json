@@ -1,5 +1,5 @@
 {
-  "body": "{ \"user\": \"maria\",\"swapi_id\": 2}",
+  "body": "{ \"user\": \"maria\",\"swapi_id\": 1}",
   "resource": "/{proxy+}",
   "path": "/characters",
   "httpMethod": "POST",
