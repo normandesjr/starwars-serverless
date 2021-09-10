@@ -1,8 +1,8 @@
 {
-  "name": "starwars-serverless",
+  "name": "put-character-function",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Starwars Serverless create character function",
+  "main": "put-character-function.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"

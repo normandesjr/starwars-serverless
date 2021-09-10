@@ -16,10 +16,10 @@ export class StarwarsService extends core.Construct {
       eventBusName: "NewCharacterBus"
     })
 
-    const createCharacterFunction = new Function(this, "CreateCharacterFunction", {
+    const putCharacterFunction = new Function(this, "PutCharacterFunction", {
       runtime: Runtime.NODEJS_14_X,
-      code: Code.fromAsset("resources"),
-      handler: "src/create.main",
+      code: Code.fromAsset("src/put-character"),
+      handler: "put-character-function.main",
       timeout: core.Duration.seconds(30),
       environment: {
         'NEW_CHARACTER_BUS': newCharacterBus.eventBusName,
@@ -27,13 +27,13 @@ export class StarwarsService extends core.Construct {
       }
     })
     
-    newCharacterBus.grantPutEventsTo(createCharacterFunction)
+    newCharacterBus.grantPutEventsTo(putCharacterFunction)
 
     const api = new apigateway.RestApi(this, "starwars-api", {
       restApiName: "Starwars Service",
     })
 
-    const getStarwarsIntegration = new apigateway.LambdaIntegration(createCharacterFunction)
+    const getStarwarsIntegration = new apigateway.LambdaIntegration(putCharacterFunction)
     
     const characters = api.root.addResource('characters')
     characters.addMethod('POST', getStarwarsIntegration)    

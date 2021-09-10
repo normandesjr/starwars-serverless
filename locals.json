@@ -1,5 +1,5 @@
 {
-  "StarwarsServerlessStack/CreateCharacterFunction": {
+  "StarwarsServerlessStack/PutCharacterFunction": {
     "SWAPI_BASE_URL": "http://host.docker.internal:8882/api"
   }
 }
