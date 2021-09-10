@@ -2,8 +2,9 @@ import * as core from "@aws-cdk/core"
 import * as s3 from "@aws-cdk/aws-s3"
 import { Function, Runtime, Code } from "@aws-cdk/aws-lambda"
 import * as apigateway from "@aws-cdk/aws-apigateway"
-// import * as dynamo from "@aws-cdk/aws-dynamodb"
-import { EventBus } from "@aws-cdk/aws-events"
+import { Table, AttributeType } from "@aws-cdk/aws-dynamodb"
+import { EventBus, Rule } from "@aws-cdk/aws-events"
+import { LambdaFunction } from '@aws-cdk/aws-events-targets';
 
 export class StarwarsService extends core.Construct {
 
@@ -11,6 +12,11 @@ export class StarwarsService extends core.Construct {
     super(scope, id)
 
     const bucket = new s3.Bucket(this, "StarwarsGame")
+
+    const starwarsTable = new Table(this, "StarwarsTable", {
+      partitionKey: { name: 'pk', type: AttributeType.STRING },
+      sortKey: { name: 'sk', type: AttributeType.STRING }
+    })
 
     const newCharacterBus = new EventBus(this, "NewCharacterBus", {
       eventBusName: "NewCharacterBus"
@@ -28,6 +34,26 @@ export class StarwarsService extends core.Construct {
     })
     
     newCharacterBus.grantPutEventsTo(putCharacterFunction)
+
+    const saveCharacterFunction = new Function(this, "SaveCharacterFunction", {
+      runtime: Runtime.NODEJS_14_X,
+      code: Code.fromAsset("src/save-character"),
+      handler: "save-character-function.main",
+      timeout: core.Duration.seconds(30),
+      environment: {
+        'TABLE_NAME': starwarsTable.tableName
+      }
+    })
+
+    starwarsTable.grantWriteData(saveCharacterFunction)
+
+    // Event Bridge Rule
+    new Rule(this, "SaveCharacterRule", {
+      eventBus: newCharacterBus,
+      eventPattern: { detailType: ["character"]},
+      targets: [ new LambdaFunction(saveCharacterFunction) ]
+    })
+
 
     const api = new apigateway.RestApi(this, "starwars-api", {
       restApiName: "Starwars Service",
