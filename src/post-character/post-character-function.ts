@@ -1,10 +1,10 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyHandlerV2, APIGatewayProxyResultV2 } from 'aws-lambda'
 import axios, { AxiosResponse } from 'axios'
-import { EventBridgeClient, PutEventsCommand } from '@aws-sdk/client-eventbridge'
+import * as sqs from '@aws-sdk/client-sqs'
 
 interface Character {
   user: string,
-  swapi_id: number
+  swapi_id: string
 }
 
 interface People {
@@ -18,8 +18,10 @@ interface FullCharacter {
   character: string,
   height: string,
   gender: string,
-  swapi_id: number
+  swapi_id: string
 }
+
+const sqsClient = new sqs.SQSClient({})
 
 export const main: APIGatewayProxyHandlerV2<APIGatewayProxyResultV2> = async(event: APIGatewayProxyEventV2) => {
 
@@ -35,18 +37,18 @@ export const main: APIGatewayProxyHandlerV2<APIGatewayProxyResultV2> = async(eve
     gender: people.data.gender, 
     swapi_id: newCharacter.swapi_id }
 
-  const eventBridgeClient = new EventBridgeClient({})
-  const eventBridgeCommand = new PutEventsCommand({Entries: [{
-    EventBusName: process.env.NEW_CHARACTER_BUS,
-    Detail: JSON.stringify(fullCharacter),
-    DetailType: 'character',
-    Source: 'game'
-  }]})
-
-  await eventBridgeClient.send(eventBridgeCommand)
+    
+    sqsClient.send(new sqs.SendMessageCommand({
+      QueueUrl: process.env.NEW_CHARACTER_QUEUE,
+      MessageBody: JSON.stringify(fullCharacter)
+    }))
 
   return { 
-    body: newCharacter.user,
+    body: JSON.stringify({
+      name: fullCharacter.character,
+      height: fullCharacter.height,
+      gender: fullCharacter.gender
+    }),
     statusCode: people.status
   }
 }

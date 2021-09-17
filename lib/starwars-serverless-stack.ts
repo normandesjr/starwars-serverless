@@ -5,6 +5,6 @@ export class StarwarsServerlessStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    new StarwarsService(this, "StarwarsServerless")
+    new StarwarsService(this, "StarwarsServerlessAPI")
   }
 }

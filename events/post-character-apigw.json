@@ -1,5 +1,5 @@
 {
-  "body": "{ \"user\": \"maria\",\"swapi_id\": 1}",
+  "body": "{ \"user\": \"maria\",\"swapi_id\": \"1\"}",
   "resource": "/{proxy+}",
   "path": "/characters",
   "httpMethod": "POST",
@@ -7,9 +7,6 @@
   "queryStringParameters": {
   },
   "multiValueQueryStringParameters": {
-    "foo": [
-      "bar"
-    ]
   },
   "pathParameters": {
     "proxy": "/characters"

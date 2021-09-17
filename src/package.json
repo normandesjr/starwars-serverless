@@ -1,8 +1,7 @@
 {
-  "name": "put-character-function",
+  "name": "characters-functions",
   "version": "1.0.0",
-  "description": "Starwars Serverless create character function",
-  "main": "put-character-function.ts",
+  "description": "Starwars Serverless characters functions",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
@@ -15,7 +14,9 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
-    "@aws-sdk/client-eventbridge": "^3.30.0",
-    "axios": "^0.21.1"
+    "@aws-sdk/client-dynamodb": "^3.31.0",
+    "@aws-sdk/client-sqs": "^3.31.0",
+    "@aws-sdk/util-dynamodb": "^3.31.0",
+    "axios": "^0.21.4"
   }
 }

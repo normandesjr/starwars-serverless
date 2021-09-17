@@ -9,3 +9,4 @@ cdk.out
 .aws-sam/
 stubby4j/logs
 src/dist
+.DS_Store

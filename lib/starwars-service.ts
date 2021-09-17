@@ -1,68 +1,75 @@
 import * as core from "@aws-cdk/core"
-import * as s3 from "@aws-cdk/aws-s3"
+import { ServicePrincipal } from '@aws-cdk/aws-iam'
 import { Function, Runtime, Code } from "@aws-cdk/aws-lambda"
-import * as apigateway from "@aws-cdk/aws-apigateway"
+import { SpecRestApi, AssetApiDefinition } from "@aws-cdk/aws-apigateway"
 import { Table, AttributeType } from "@aws-cdk/aws-dynamodb"
-import { EventBus, Rule } from "@aws-cdk/aws-events"
-import { LambdaFunction } from '@aws-cdk/aws-events-targets';
+import { Queue } from "@aws-cdk/aws-sqs"
+import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources'
 
 export class StarwarsService extends core.Construct {
 
   constructor(scope: core.Construct, id: string) {
     super(scope, id)
 
-    const bucket = new s3.Bucket(this, "StarwarsGame")
-
-    const starwarsTable = new Table(this, "StarwarsTable", {
+    const userCharacterTable = new Table(this, "UserCharacterTable", {
       partitionKey: { name: 'pk', type: AttributeType.STRING },
       sortKey: { name: 'sk', type: AttributeType.STRING }
     })
 
-    const newCharacterBus = new EventBus(this, "NewCharacterBus", {
-      eventBusName: "NewCharacterBus"
-    })
+    const newCharacterQueue = new Queue(this, 'NewCharacterQueue')
 
-    const putCharacterFunction = new Function(this, "PutCharacterFunction", {
+    const postCharacterFunction = new Function(this, "PostCharacterFunction", {
+      functionName: 'PostCharacterFunction',
       runtime: Runtime.NODEJS_14_X,
-      code: Code.fromAsset("src/put-character"),
-      handler: "put-character-function.main",
+      code: Code.fromAsset("src"),
+      handler: "post-character/post-character-function.main",
       timeout: core.Duration.seconds(30),
       environment: {
-        'NEW_CHARACTER_BUS': newCharacterBus.eventBusName,
+        'NEW_CHARACTER_QUEUE': newCharacterQueue.queueUrl,
         'SWAPI_BASE_URL': 'https://swapi.dev/api'
       }
     })
-    
-    newCharacterBus.grantPutEventsTo(putCharacterFunction)
+
+    newCharacterQueue.grantSendMessages(postCharacterFunction)
 
     const saveCharacterFunction = new Function(this, "SaveCharacterFunction", {
+      functionName: 'SaveCharacterFunction',
       runtime: Runtime.NODEJS_14_X,
-      code: Code.fromAsset("src/save-character"),
-      handler: "save-character-function.main",
+      code: Code.fromAsset("src"),
+      handler: "save-character/save-character-function.main",
       timeout: core.Duration.seconds(30),
       environment: {
-        'TABLE_NAME': starwarsTable.tableName
+        'TABLE_NAME': userCharacterTable.tableName
       }
     })
 
-    starwarsTable.grantWriteData(saveCharacterFunction)
+    saveCharacterFunction.addEventSource(
+      new SqsEventSource(newCharacterQueue)
+    )
 
-    // Event Bridge Rule
-    new Rule(this, "SaveCharacterRule", {
-      eventBus: newCharacterBus,
-      eventPattern: { detailType: ["character"]},
-      targets: [ new LambdaFunction(saveCharacterFunction) ]
+    userCharacterTable.grantWriteData(saveCharacterFunction)
+
+    const getCharactersFunction = new Function(this, "GetCharactersFunction", {
+      functionName: 'GetCharactersFunction',
+      runtime: Runtime.NODEJS_14_X,
+      code: Code.fromAsset("src"),
+      handler: "get-character/get-characters-function.main",
+      timeout: core.Duration.seconds(30),
+      environment: {
+        'TABLE_NAME': userCharacterTable.tableName
+      }
     })
 
+    userCharacterTable.grantReadData(getCharactersFunction)
 
-    const api = new apigateway.RestApi(this, "starwars-api", {
-      restApiName: "Starwars Service",
+    const spec = new SpecRestApi(this, 'StarwarsServerlessAPI', {
+      restApiName: 'Starwars Serverless API',
+      apiDefinition: AssetApiDefinition.fromAsset("spec/starwars-definition.yaml"),
+      deploy: true
     })
 
-    const getStarwarsIntegration = new apigateway.LambdaIntegration(putCharacterFunction)
-    
-    const characters = api.root.addResource('characters')
-    characters.addMethod('POST', getStarwarsIntegration)    
+    postCharacterFunction.grantInvoke(new ServicePrincipal("apigateway.amazonaws.com"));
+    getCharactersFunction.grantInvoke(new ServicePrincipal("apigateway.amazonaws.com"));
   }
 
 }

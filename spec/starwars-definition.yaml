@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: Starwars Serverless API
+  version: "1.0.0"
+
+servers:
+- url: "http://localhost:8000/{basePath}"
+  variables:
+    basePath:
+      default: "prod"
+
+paths:
+  '/characters':
+    post:
+      summary: Cria um novo personagem para o usuário
+      operationId: post-character
+      description: Recebe o nome do usuário e o id do personagem do Starwars e retorna os dados completos do personagem
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterResponse'
+              examples:
+                example-1:
+                  value:
+                    name: "Luke Skywalker"
+                    height: "172"
+                    gender: "male"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CharacterRequest'
+            examples:
+              example-1:
+                value:
+                  user: "joao"
+                  swapi_id: "1"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:PostCharacterFunction/invocations"
+        connectionType: "INTERNET"
+        timeoutInMillis: 6500
+      x-amazon-apigateway-request-validator: all
+    get:
+      summary: Retona a lista de personagens do usuário
+      description: Recebe o nome do usuário do jogo e retorna todos os personagens que ele já conquistou
+      operationId: "get-characters"
+      parameters:
+      - name: "user"
+        in: "query"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: A lista de personagens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CharacterResponse"
+              examples:
+                example-1:
+                  value:
+                    - name: "Luke Skywalker"
+                      height: "172"
+                      gender: "male"
+                    - name: "C-3PO"
+                      height: "167"
+                      gender: "n/a"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:GetCharactersFunction/invocations"
+        connectionType: "INTERNET"
+        timeoutInMillis: 6500
+      x-amazon-apigateway-request-validator: params-only
+    
+components:
+  schemas:
+    CharacterRequest:
+      title: CharacterRequest
+      type: object
+      properties:
+        user:
+          type: string
+        swapi_id:
+          type: string
+      required:
+        - user
+        - swapi_id
+    CharacterResponse:
+      title: CharacterResponse
+      type: object
+      properties:
+        name:
+          type: string
+        height:
+          type: string
+        gender:
+          type: string
+      required:
+        - name
+        - height
+        - gender
+
+x-amazon-apigateway-request-validators:
+  all:
+    validateRequestParameters: true
+    validateRequestBody: true
+  params-only:
+    validateRequestParameters: true
+    validateRequestBody: false
