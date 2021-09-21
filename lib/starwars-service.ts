@@ -13,7 +13,7 @@ export class StarwarsService extends core.Construct {
 
     const userCharacterTable = new Table(this, "UserCharacterTable", {
       partitionKey: { name: 'pk', type: AttributeType.STRING },
-      sortKey: { name: 'sk', type: AttributeType.STRING }
+      sortKey: { name: 'sk', type: AttributeType.STRING },
     })
 
     const newCharacterQueue = new Queue(this, 'NewCharacterQueue')

@@ -3,23 +3,23 @@ import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb"
 
 const dynamoDB = new DynamoDBClient({ })
 
-interface FullCharacter {
-  user: string,
-  character: string,
-  height: string,
-  gender: string,
-  swapi_id: string
-}
+// interface FullCharacter {
+//   user: string,
+//   character: string,
+//   height: string,
+//   gender: string,
+//   swapi_id: string
+// }
 
-export const main = async(event: SQSEvent) => {
-  const body = JSON.parse(event.Records[0].body)
-
-  const fullCharacter:FullCharacter = { 
-    user: body.user, 
-    character: body.character,
-    height: body.height,
-    gender: body.gender,
-    swapi_id: body.swapi_id
+export const main = async(event: SQSEvent) => {  
+  const record = JSON.parse(event.Records[0].body.replace(/\\/g, ''))
+  
+  const fullCharacter = { 
+    user: record.user, 
+    character: record.character,
+    height: record.height,
+    gender: record.gender,
+    swapi_id: record.swapi_id
   }
 
   const params = {

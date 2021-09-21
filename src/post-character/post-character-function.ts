@@ -37,7 +37,6 @@ export const main: APIGatewayProxyHandlerV2<APIGatewayProxyResultV2> = async(eve
     gender: people.data.gender, 
     swapi_id: newCharacter.swapi_id }
 
-    
     sqsClient.send(new sqs.SendMessageCommand({
       QueueUrl: process.env.NEW_CHARACTER_QUEUE,
       MessageBody: JSON.stringify(fullCharacter)
