@@ -1,6 +1,6 @@
 import * as core from "@aws-cdk/core"
 import { ServicePrincipal } from '@aws-cdk/aws-iam'
-import { Function, Runtime, Code } from "@aws-cdk/aws-lambda"
+import { Function, Runtime, Code, Tracing } from "@aws-cdk/aws-lambda"
 import { SpecRestApi, AssetApiDefinition } from "@aws-cdk/aws-apigateway"
 import { Table, AttributeType } from "@aws-cdk/aws-dynamodb"
 import { Queue } from "@aws-cdk/aws-sqs"
@@ -27,7 +27,8 @@ export class StarwarsService extends core.Construct {
       environment: {
         'NEW_CHARACTER_QUEUE': newCharacterQueue.queueUrl,
         'SWAPI_BASE_URL': 'https://swapi.dev/api'
-      }
+      },
+      tracing: Tracing.ACTIVE
     })
 
     newCharacterQueue.grantSendMessages(postCharacterFunction)
@@ -40,7 +41,8 @@ export class StarwarsService extends core.Construct {
       timeout: core.Duration.seconds(30),
       environment: {
         'TABLE_NAME': userCharacterTable.tableName
-      }
+      },
+      tracing: Tracing.ACTIVE
     })
 
     saveCharacterFunction.addEventSource(
@@ -57,7 +59,8 @@ export class StarwarsService extends core.Construct {
       timeout: core.Duration.seconds(30),
       environment: {
         'TABLE_NAME': userCharacterTable.tableName
-      }
+      },
+      tracing: Tracing.ACTIVE
     })
 
     userCharacterTable.grantReadData(getCharactersFunction)

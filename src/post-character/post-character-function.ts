@@ -1,6 +1,7 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyHandlerV2, APIGatewayProxyResultV2 } from 'aws-lambda'
 import axios, { AxiosResponse } from 'axios'
 import * as sqs from '@aws-sdk/client-sqs'
+import { captureAWSv3Client } from 'aws-xray-sdk-core'
 
 interface Character {
   user: string,
@@ -21,7 +22,7 @@ interface FullCharacter {
   swapi_id: string
 }
 
-const sqsClient = new sqs.SQSClient({})
+const sqsClient = captureAWSv3Client(new sqs.SQSClient({}))
 
 export const main: APIGatewayProxyHandlerV2<APIGatewayProxyResultV2> = async(event: APIGatewayProxyEventV2) => {
 

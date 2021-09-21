@@ -1,7 +1,8 @@
 import { SQSEvent } from 'aws-lambda'
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb"
+import { captureAWSv3Client } from 'aws-xray-sdk-core'
 
-const dynamoDB = new DynamoDBClient({ })
+const dynamoDB = captureAWSv3Client(new DynamoDBClient({}))
 
 // interface FullCharacter {
 //   user: string,

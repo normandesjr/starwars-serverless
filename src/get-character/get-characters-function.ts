@@ -1,9 +1,10 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyHandlerV2, APIGatewayProxyResultV2 } from 'aws-lambda'
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"
 import { DynamoDBDocumentClient, QueryCommand, QueryCommandInput } from '@aws-sdk/lib-dynamodb'
+import { captureAWSv3Client } from 'aws-xray-sdk-core'
 
 const dynamoDBClient = new DynamoDBClient({})
-const ddbDocClient = DynamoDBDocumentClient.from(dynamoDBClient)
+const ddbDocClient = captureAWSv3Client(DynamoDBDocumentClient.from(dynamoDBClient))
 
 export const main: APIGatewayProxyHandlerV2<APIGatewayProxyResultV2> = async(event: APIGatewayProxyEventV2) => {
 
